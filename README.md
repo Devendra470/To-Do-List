@@ -1,2 +1,6 @@
-# To-Do-List
-<p> This is a simple To Do List project created using Django
+# To-Do List Django Project
+
+A simple Django To-Do List app.
+
+## Live Demo
+[Click here to view the app](https://to-do-list-boxy.onrender.com)
