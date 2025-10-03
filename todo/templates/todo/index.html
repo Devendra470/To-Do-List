@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style>My To-Do List</h2>
+    <div>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <input type="text" name="title" id="title" placeholder="Add new Task">
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+    <div>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                {{ task.title }}
+                <a href="{% url 'delete' task.id %}"><button>❌</button></a>
+            </li>
+            {% empty %}
+            <li>No tasks yet!</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</body>
+
+</html>
